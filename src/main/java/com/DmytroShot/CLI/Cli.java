@@ -47,7 +47,7 @@ public class Cli {
             }
 
             int key = 0;
-            if (!"b".equals(command.toLowerCase())) {
+            if (!"b".equalsIgnoreCase(command)) {
                 System.out.println("Write key");
                 key = scan.nextInt();
                 if (key<=0){

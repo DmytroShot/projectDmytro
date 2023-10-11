@@ -18,9 +18,12 @@ public class CliAction {
     void cliUse(ArrayList<String> info){
         infoOperations writer = new infoOperations(filePath,info);
         switch (command){
-            case "c" -> writer.codeInfo(key);
-            case "d" -> writer.deCodeInfo(key);
-            case "b" -> writer.bruteForceInfo();
+            case "ENCRYPT" :
+            case "c" : writer.codeInfo(key);
+            case "DECRYPT" :
+            case "d" : writer.deCodeInfo(key);
+            case "BRUTE_FORCE" :
+            case "b" : writer.bruteForceInfo();
         }
     }
 }
