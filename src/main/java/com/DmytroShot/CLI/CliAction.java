@@ -20,7 +20,7 @@ public class CliAction {
         switch (command){
             case "c" -> writer.codeInfo(key);
             case "d" -> writer.deCodeInfo(key);
-            //case "c" -> writer.codeInfo(key);
+            case "b" -> writer.bruteForceInfo();
         }
     }
 }

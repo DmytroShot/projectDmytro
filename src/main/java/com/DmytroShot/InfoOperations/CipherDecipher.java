@@ -1,10 +1,11 @@
-package InfoOperations;
+package com.DmytroShot.InfoOperations;
 
 import java.util.ArrayList;
 
-import static Constants.Alfabets.ALF_EN;
+import static com.DmytroShot.Constants.Alfabets.ALF_EN;
 
 class CipherDecipher {
+    private static final int ALFABET_COUNT = 26;
 
     private final String path;
     private final ArrayList<String> info;
@@ -19,7 +20,7 @@ class CipherDecipher {
         for (String row :info){
             for (char letter :row.toCharArray()){
                 if (ALF_EN.contains(letter)){
-                    strBuilder.append(ALF_EN.get((ALF_EN.indexOf(letter)+key)%26));
+                    strBuilder.append(ALF_EN.get((ALF_EN.indexOf(letter)+key)%ALFABET_COUNT));
                 } else if (ALF_EN.contains(Character.toLowerCase(letter))) {
                     strBuilder.append(Character.toUpperCase(getCharByKey(Character.toLowerCase(letter),key)));
                 }else {strBuilder.append(letter);}
@@ -38,9 +39,9 @@ class CipherDecipher {
         for (String row :info){
             for (char letter :row.toCharArray()){
                 if (ALF_EN.contains(letter)){
-                    strBuilder.append(getCharByKey(letter,-key+26));
+                    strBuilder.append(getCharByKey(letter,-key+ALFABET_COUNT));
                 } else if (ALF_EN.contains(Character.toLowerCase(letter))) {
-                    strBuilder.append(Character.toUpperCase(getCharByKey(Character.toLowerCase(letter),-key+26)));
+                    strBuilder.append(Character.toUpperCase(getCharByKey(Character.toLowerCase(letter),-key+ALFABET_COUNT)));
                 }else {strBuilder.append(letter);}
 
             }
@@ -51,7 +52,7 @@ class CipherDecipher {
         return res;
     }
 
-    private static char getCharByKey(char letter ,int key){
-        return ALF_EN.get((ALF_EN.indexOf(letter)+key)%26);
+    private char getCharByKey(char letter ,int key){
+        return ALF_EN.get((ALF_EN.indexOf(letter)+key)%ALFABET_COUNT);
     }
 }

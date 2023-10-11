@@ -1,4 +1,4 @@
-package FileService;
+package com.DmytroShot.FileService;
 
 import java.io.IOException;
 import java.nio.file.Files;

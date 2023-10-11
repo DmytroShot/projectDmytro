@@ -1,4 +1,4 @@
-package FileService;
+package com.DmytroShot.FileService;
 
 import java.util.ArrayList;
 

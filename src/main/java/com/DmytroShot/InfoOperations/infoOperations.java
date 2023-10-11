@@ -1,6 +1,6 @@
-package InfoOperations;
+package com.DmytroShot.InfoOperations;
 
-import FileService.fileService;
+import com.DmytroShot.FileService.fileService;
 
 import java.util.ArrayList;
 
@@ -20,10 +20,19 @@ public class infoOperations {
             fileOper.fileWrite(res," [CRYPTED]");
     }
 
-    public void DecodeInfo(int key){
+    public void deCodeInfo(int key){
         CipherDecipher infOper = new CipherDecipher(path,info);
         ArrayList<String> res = infOper.deCode(key);
         fileService fileOper = new fileService(path);
         fileOper.fileWrite(res," [DECRYPTED]");
+    }
+
+    public void bruteForceInfo(){
+        bruteForcer forceOperation = new bruteForcer(info);
+        int key = forceOperation.bruteForce();
+        CipherDecipher infOperation = new CipherDecipher(path,info);
+        ArrayList<String> res = infOperation.deCode(key);
+        fileService fileOperation = new fileService(path);
+        fileOperation.fileWrite(res," [BRUTE_FORCED]");
     }
 }

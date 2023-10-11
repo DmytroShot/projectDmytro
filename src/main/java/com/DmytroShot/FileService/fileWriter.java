@@ -1,5 +1,6 @@
-package FileService;
+package com.DmytroShot.FileService;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,8 +14,18 @@ class fileWriter {
         this.message=message;
     }
     void write(String type){
+
         try{
-            path=path.replace(path.substring(path.lastIndexOf("."),path.length()),type+(path.substring(path.lastIndexOf("."),path.length())));
+
+            String pathEnds = path.substring(path.lastIndexOf("\\"),path.lastIndexOf("."));
+            String pathEnds2=pathEnds;
+            if (pathEnds.contains("[CRYPTED]")){
+                pathEnds2=pathEnds.replace(" [CRYPTED]","");
+            } else if (pathEnds.contains("[DECRYPTED]")) {
+                pathEnds2=pathEnds.replace(" [DECRYPTED]","");
+            }
+                path=path.replace(pathEnds,pathEnds2+type);
+
 
             Files.write(Path.of(path),message);
         }
