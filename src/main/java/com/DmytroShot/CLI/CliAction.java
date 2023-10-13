@@ -20,10 +20,13 @@ public class CliAction {
         switch (command){
             case "ENCRYPT" :
             case "c" : writer.codeInfo(key);
+                      break;
             case "DECRYPT" :
             case "d" : writer.deCodeInfo(key);
+                      break;
             case "BRUTE_FORCE" :
             case "b" : writer.bruteForceInfo();
+                      break;
         }
     }
 }
