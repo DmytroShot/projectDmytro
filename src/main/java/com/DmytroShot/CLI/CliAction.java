@@ -26,7 +26,7 @@ public class CliAction {
                       break;
             case "BRUTE_FORCE" :
             case "b" : writer.bruteForceInfo();
-                      break;
+             break;
         }
     }
 }
